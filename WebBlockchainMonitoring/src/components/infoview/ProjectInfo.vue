@@ -4,7 +4,7 @@
             <div>
                 <h1 class="title">About this website</h1>
                 <h2 class="title2">Context</h2>
-                <p class="text">This website is a project of our Master's Degree at the IDMC supervised by our teacher K. Smaili.
+                <p class="text">This website is a project of our MIAGE Master's Degree at the IDMC supervised by our teacher K. Smaili.
                     We implemented a case study following a literature review about the blockchain. The main goal is to be able to monitor a 
                     blockchain in order to understand how it works with a total control on the networks nodes.
                 </p>
@@ -17,7 +17,7 @@
         </div>
         <div>
             <h2 class="title2">Uses</h2>
-            <p class="text">This web interface is meant to be locally connected to an API that you can find <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <p class="text">This web interface is meant to be locally connected to an API that you can find <a href="https://github.com/MoissBatt/BlockchainMIAGE/blob/master/README.md" target="_blank">
                     here</a>. In this app, it is possible to add a miner, delete one, add a sample of five miners ("Bootstrap" button) and
                     delete the blockchain ("Delete" button). It is possible to monitor the creation of the blocks and their transactions in
                     the "blocks" tab and to follow some statistics in the "stats" tab with two charts : the amount of blocks mined by every miners
