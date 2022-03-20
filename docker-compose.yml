@@ -1,0 +1,28 @@
+version: '3'
+services:
+    blockchain-web:
+        build:
+            context: ./WebBlockchainMonitoring
+        container_name: blockchain-web
+        ports:
+            - "3000:3000"
+        links:
+            - "blockchain-api:blockchain-web"
+        networks:
+            - app
+    
+    blockchain-api:
+        build:
+            context: ./SimulationBlockchain
+        container_name: blockchain-api
+        environment: 
+            - SERVER_PORT=8080
+        ports:
+            - "8080:8080"
+        networks:
+            - app
+
+networks:
+    app:
+        driver: bridge
+ 
