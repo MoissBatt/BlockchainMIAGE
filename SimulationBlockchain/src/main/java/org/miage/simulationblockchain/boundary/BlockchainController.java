@@ -41,7 +41,9 @@ public class BlockchainController {
     }
 
     @PostMapping(value = "/miners/{name}/port/{port}")
-    public ResponseEntity<Miner> addMiner(@PathVariable("name") String name, @PathVariable("port") int port) {
+    public ResponseEntity<?> addMiner(@PathVariable("name") String name, @PathVariable("port") int port) {
+        if(network.getMiners().size()==10)
+            return ResponseEntity.badRequest().body("Maximum number of miners reached : 10");
         Miner created = network.addMiner(name, port);
         if (created == null)
             return ResponseEntity.badRequest().build();
