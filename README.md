@@ -30,6 +30,7 @@ DELETE ```/miners/{name}```
 
 #### Add a miner with his name and port
 POST ```/miners/{name}/port/{port}```
+Note : This fonctionnality is floored to 10 miners in order to avoid a thread overflow in your computer, it is possible to change that value in the code directly.
 
 #### Add 5 sample miners
 POST ```/miners/testSample```
