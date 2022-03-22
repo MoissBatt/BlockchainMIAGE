@@ -17,12 +17,25 @@ async function deleteMiners(miner){
 async function addMiner(){
     var name
     var port
+    var attempt = 0
     do{
       name = Math.random().toString(36).slice(2);
       port = "33"+ (Math.floor(Math.random() * (900 - 100) + 1) + 100)
-    } while(!checkUnique(name,port))
-    http.post("/miners/"+name+"/port/"+port)
-    console.log("The miner "+name+ " has been created on the network port "+port)
+      attempt = attempt + 1
+    } while(!checkUnique(name,port) && attempt > 15)
+    console.log(attempt)
+    if(attempt < 15){
+      var response = http.post("/miners/"+name+"/port/"+port)
+      response.then(resp =>{
+        console.log("The miner "+name+ " has been created on the network port "+port)
+      }, resp => {
+        console.log(resp.response.data)
+      })
+    }else{
+      console.log("Impossible d'ajouter un mineur")
+    }
+    
+    
 }
 
 function checkUnique(miner, port){
