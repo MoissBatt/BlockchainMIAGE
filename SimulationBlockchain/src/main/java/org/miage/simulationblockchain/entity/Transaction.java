@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Random;
 import java.util.UUID;
 
@@ -19,7 +18,7 @@ public class Transaction implements Serializable {
     public Transaction(Random rand) {
         this.sender = (UUID.randomUUID()).toString();
         this.receiver = (UUID.randomUUID()).toString();
-        this.cost = Math.round(1 + rand.nextFloat() * (100 - 1)*100)/100F;
+        this.cost = Math.round(1 + rand.nextFloat() * (100 - 1) * 100) / 100F;
     }
 
     public String toString() {

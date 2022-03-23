@@ -7,12 +7,14 @@ import java.math.BigInteger;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class ProofOfWork implements Serializable {
     public static final int INITIAL_DIFFICULTY = 16;
     private static int difficulty;
     private Block block;
     private BigInteger target;
+    private final Random rand = new Random();
 
     public ProofOfWork(Block block) {
         this.block = block;
@@ -34,7 +36,7 @@ public class ProofOfWork implements Serializable {
 
     public Map<String, String> run() {
         String hash = "";
-        int nonce = 0;
+        int nonce = rand.nextInt(500000);
         boolean solved = true;
         while (solved) {
             hash = HashService.hash256(prepareData(nonce));
